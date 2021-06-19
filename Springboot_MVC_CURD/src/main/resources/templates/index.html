@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html >
+<head>
+<title>Product Manager</title>
+</head>
+<body>
+<div >
+    <h1>Product List</h1>
+    <a href="/new">Create New Product</a>
+     <form action="#" th:action="@{/find}"method="post">
+            <table border="0" cellpadding="10">
+                <tr>             
+                    <td>
+                       <input type="search" id="name">  
+                    </td>
+                </tr>                                    
+                <tr>
+                    <td colspan="2"><button type="submit">Save</button> </td>
+                </tr>
+            </table>
+        </form>
+    
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Name</th>
+                <th>Catogery</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="product : ${listProducts}">
+                <td th:text="${product.id}">Product ID</td>
+                <td th:text="${product.name}">Name</td>
+                <td th:text="${product.catogery}">Brand</td>
+                <td th:text="${product.price}">Price</td>
+                <td>
+                    <a th:href="@{/edit/{id}(id=${product.id})}">Edit</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a th:href="@{/delete/{id}(id=${product.id})}">Delete</a>
+                </td> 
+            </tr>
+        </tbody>
+    </table>
+</div>   
+</body>
+</html>
