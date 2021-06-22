@@ -6,6 +6,7 @@
 <body>
 <div >
     <h1>Product List</h1>
+    <a href="admin/new">Create New Product</a>
     <br/>
        <div align="right">
 <a href="/logout">Logout</a>
@@ -17,6 +18,7 @@
                 <th>Name</th>
                 <th>Catogery</th>
                 <th>Price</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -24,11 +26,17 @@
                 <td th:text="${product.id}">Product ID</td>
                 <td th:text="${product.name}">Name</td>
                 <td th:text="${product.catogery}">Brand</td>
-                <td th:text="${product.price}">Price</td> 
+                <td th:text="${product.price}">Price</td>
+                <td>
+                    <a th:href="@{/admin/edit/{id}(id=${product.id})}">Edit</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a th:href="@{/admin/delete/{id}(id=${product.id})}">Delete</a>
+                </td> 
             </tr>
         </tbody>
     </table>
   
-</div>   
+</div>  
+
 </body>
 </html>

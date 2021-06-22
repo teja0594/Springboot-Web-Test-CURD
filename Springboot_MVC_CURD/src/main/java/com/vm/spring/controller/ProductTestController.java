@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.vm.spring.entity.Product;
 import com.vm.spring.service.ProductService;
 
-@RestController
+
 
 public class ProductTestController {
     @Autowired
